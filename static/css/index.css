@@ -1,0 +1,216 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+i {
+    font-style: normal;
+}
+
+.box {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.hidden {
+    display: none;
+}
+
+img {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+}
+
+html,
+body {
+    width: 100%;
+}
+
+header {
+    width: 100%;
+    height: 4.31rem;
+    position: relative;
+    background: url('../pic/index-header-bg.jpg') no-repeat center top;
+    background-size: 100% auto;
+    -webkit-background-size: 100% auto;
+    padding-bottom: 0.11rem;
+}
+
+.content {
+    width: 100%;
+    min-height: 18.25rem;
+    overflow: hidden;
+    background: url('../pic/index-bg.jpg') no-repeat center top;
+    background-size: cover;
+    -webkit-background-size: cover;
+    position: relative;
+}
+
+.award-list {
+    width: 100%;
+    height: 0.64rem;
+    background: url('../pic/award-list-bg.png') no-repeat center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.award-list-con {
+    width: 100%;
+    height: 0.5rem;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -0.25rem;
+}
+
+.award-list-ul {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.award-list li {
+    font-size: 0.21rem;
+    color: #0d0409;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    padding-left: 1.24rem;
+}
+
+span.name,
+span.award-rank {
+    color: #fff;
+}
+
+.trun-wrap {
+    width: 5.64rem;
+    height: 6.03rem;
+    margin: 0.36rem auto 0.27rem;
+    position: relative;
+}
+
+.turn-pan {
+    width: 100%;
+    height: 100%;
+    background: url('../pic/turn-pan.png') no-repeat center;
+    background-size: 100%;
+    -webkit-background-size: 100%;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    margin-left: -2.82rem;
+    transform-origin: 2.82rem 2.82rem;
+    -webkit-transform-origin: 2.82rem 2.82rem;
+}
+
+.turn-pointer {
+    width: 1.79rem;
+    height: 2.74rem;
+    background: url('../pic/turn-pointer.png') no-repeat center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-top: -2.0rem;
+    margin-left: -0.92rem;
+    cursor: pointer;
+}
+
+.award-count {
+    font-size: 0.3rem;
+    color: #534216;
+    text-align: center;
+    letter-spacing: 0.02rem;
+}
+
+.award-count-num {
+    font-size: 0.4rem;
+    font-weight: bold;
+}
+
+#remain-count {
+    font-size: 0.4rem;
+}
+
+.btn {
+    width: 2.28rem;
+    height: 0.68rem;
+    font-size: 0.35rem;
+    border: 1px solid rgb(147, 111, 20);
+    border-radius: 0.29rem;
+    -webkit-border-radius: 0.29rem;
+    background: rgb(201, 166, 62);
+    color: #fff;
+    text-align: center;
+    display: block;
+    margin: 0 auto;
+    outline: none;
+}
+
+.btn.hidden {
+    display: none;
+}
+
+#next {
+    margin-top: 0.35rem;
+}
+
+#myAward {
+    margin-top: 0.25rem;
+}
+
+.active-desc {
+    height: 8.3rem;
+    background: url('../pic/award-desc.png') no-repeat center top;
+    background-size: auto 100%;
+    -webkit-background-size: auto 100%;
+    margin-top: 0.55rem;
+}
+
+.result-wrap {
+    width: 4.46rem;
+    height: 4.57rem;
+    position: absolute;
+    left: 50%;
+    top: 1.56rem;
+    margin-left: -2.23rem;
+    background: url('../pic/award-4.png') no-repeat center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    z-index: 1000;
+}
+
+.result-wrap.award1 {
+    background-image: url('../pic/award-1.png')
+}
+
+.result-wrap.award2 {
+    background-image: url('../pic/award-2.png')
+}
+
+.result-wrap.award3 {
+    background-image: url('../pic/award-3.png')
+}
+
+.result-wrap.award4 {
+    background-image: url('../pic/award-4.png')
+}
+
+.close-btn {
+    width: 0.42rem;
+    height: 0.42rem;
+    background: url('../pic/close-btn.png') no-repeat center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    position: absolute;
+    right: 0.2rem;
+    top: 0.2rem;
+    border: 0;
+}

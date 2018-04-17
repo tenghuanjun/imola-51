@@ -1,0 +1,16 @@
+{
+    "success": true,
+    "list": [{
+        "name": "霍建华",
+        "award": "一"
+    }, {
+        "name": "斯坦森",
+        "award": "三"
+    }, {
+        "name": "武隆隆",
+        "award": "二"
+    }, {
+        "name": "宋X",
+        "award": "一"
+    }]
+}

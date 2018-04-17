@@ -1,0 +1,224 @@
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none
+}
+
+.box {
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+
+.hidden {
+    display: none;
+}
+
+img {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+header {
+    width: 100%;
+    height: 6.18rem;
+    position: relative;
+    background: url('../pic/main-top.jpg') no-repeat center top;
+    background-size: 100% auto;
+    -webkit-background-size: 100% auto;
+}
+
+.content {
+    width: 100%;
+    height: calc(100% - 6.18rem);
+    overflow: hidden;
+    background: url('../pic/main-bottom.jpg') no-repeat center;
+    background-size: cover;
+    -webkit-background-size: cover;
+}
+
+.award-list {
+    width: 100%;
+    height: 0.64rem;
+    background: url('../pic/award-list-bg.png') no-repeat center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    position: absolute;
+    left: 0;
+    bottom: -0.14rem;
+}
+
+.award-list-con {
+    width: 100%;
+    height: 0.5rem;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-top: -0.25rem;
+}
+
+.award-list-ul {
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.award-list li {
+    font-size: 0.21rem;
+    color: #0d0409;
+    height: 0.5rem;
+    line-height: 0.5rem;
+    padding-left: 1.24rem;
+}
+
+span.name,
+span.award-rank {
+    color: #fff;
+}
+
+.msg-wrap {
+    text-align: center;
+}
+
+.msg-from {
+    display: inline-block;
+}
+
+.msg-item {
+    height: 0.6rem;
+    overflow: hidden;
+    text-align: center;
+    margin-top: 0.29rem;
+}
+
+.msg-item:nth-child(1) {
+    margin-top: 0;
+}
+
+.msg-item>* {
+    float: left;
+}
+
+.msg-text {
+    display: inline-block;
+    width: 1.4rem;
+    height: 0.6rem;
+    line-height: 0.6rem;
+    margin-right: 0.2rem;
+    font-size: 0.32rem;
+    color: #534216;
+    text-align: right;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.unit {
+    display: inline-block;
+    font-size: 0.32rem;
+    color: #534216;
+    height: 0.6rem;
+    line-height: 0.6rem;
+}
+
+.tit-btn {
+    display: block;
+    width: 2.87rem;
+    height: 1.05rem;
+    line-height: 1.05rem;
+    font-size: 0.4rem;
+    color: #fff;
+    background: url('../pic/btn-bg.png') no-repeat center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    text-align: center;
+    margin: 0.5rem auto 0.35rem;
+}
+
+input {
+    display: inline-block;
+    width: 3.1rem;
+    height: 0.6rem;
+    border: 1px solid rgb(147, 111, 20);
+    border-radius: 0.28rem;
+    -webkit-border-radius: 0.28rem;
+    background: rgba(201, 166, 62, 0.702);
+    color: #534216;
+    font-size: 0.24rem;
+    padding: 0 0.18rem;
+    outline: none;
+}
+
+#money {
+    width: 2.6rem;
+    margin-right: 0.13rem;
+}
+
+input::-webkit-input-placeholder {
+    color: #534216;
+}
+
+#submitBtn {
+    display: block;
+    margin: 0 auto;
+    border: 1px solid rgb(147, 111, 20);
+    border-radius: 0.3rem;
+    background: rgb(201, 166, 62);
+    width: 2.3rem;
+    height: 0.71rem;
+    font-size: 0.36rem;
+    color: #fff;
+    margin-top: 0.4rem;
+    outline: none;
+}
+
+.hint-wrap {
+    font-size: 0.33rem;
+    color: #534216;
+}
+
+.hint-wrap p {
+    text-align: center;
+}
+
+.real-money {
+    font-size: 0.5rem;
+    color: #c9a63e;
+    height: 0.4rem;
+    line-height: 0.4rem;
+    margin: 0.15rem auto 0.2rem;
+}
+
+.size23 {
+    font-size: 0.23rem;
+    margin-bottom: 0.1rem;
+}
+
+.size18 {
+    font-size: 0.18rem;
+}
+
+.btn-wrap {
+    text-align: center;
+    margin-top: 0.3rem;
+}
+
+.btn {
+    width: 2.30rem;
+    height: 0.71rem;
+    font-size: 0.36rem;
+    border: 1px solid rgb(147, 111, 20);
+    border-radius: 0.30rem;
+    -webkit-border-radius: 0.30rem;
+    background: rgb(201, 166, 62);
+    color: #fff;
+    margin: 0 0.44rem;
+    outline: none;
+}
