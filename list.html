@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IMOLA五一抽奖小游戏</title>
+    <link rel="stylesheet" href="static/css/list.css">
+    <script>
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 750 * 100 + 'px';
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="award-list">
+            <div class="award-list-con">
+                <ul class="award-list-ul">
+                    <li class="award-item box">恭喜
+                        <span class="name">霍建华</span> 获得
+                        <span class="award-rank">一等奖。</span>
+                    </li>
+                    <li class="award-item box">恭喜
+                        <span class="name">建华</span> 获得
+                        <span class="award-rank">一等奖。</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <section class="content">
+        <div class="btn-wrap box">
+            <button class="btn back">返回</button>
+            <button class="btn myAwarnBtn">我的奖品</button>
+        </div>
+        <div class="own-award-list"></div>
+    </section>
+</body>
+<script type="text/x-handlebars-template" id="award-item-temp">
+    {{#if list.A}}
+    <div class="own-award-item a1">
+        <span class="count">x{{list.A}}</span>
+    </div>
+    {{/if}} {{#if list.B}}
+    <div class="own-award-item a2">
+        <span class="count">x{{list.B}}</span>
+    </div>
+    {{/if}} {{#if list.C}}
+    <div class="own-award-item a3">
+        <span class="count">x{{list.C}}</span>
+    </div>
+    {{/if}} {{#if list.D}}
+    <div class="own-award-item a4">
+        <span class="count">x{{list.D}}</span>
+    </div>
+    {{/if}}
+</script>
+<script type="text/javascript " src="static/js/jquery.min.js "></script>
+<script type="text/javascript " src="static/js/handlebars-v4.0.11.js "></script>
+<script type="text/javascript " src="static/js/imola.js "></script>
+<script type="text/javascript " src="static/js/list.js "></script>
+
+</html>

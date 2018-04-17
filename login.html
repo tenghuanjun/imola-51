@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IMOLA五一抽奖小游戏</title>
+    <link rel="stylesheet" href="static/css/layer.css">
+    <link rel="stylesheet" href="static/css/login.css">
+    <script>
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 750 * 100 + 'px';
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="award-list">
+            <div class="award-list-con">
+                <ul class="award-list-ul"></ul>
+            </div>
+        </div>
+    </header>
+    <section class="content">
+        <div class="msg-wrap">
+            <div class="tit-btn">信息验证</div>
+            <from class="msg-from">
+                <div class="msg-item">
+                    <span class="msg-text">姓名:</span>
+                    <input id="name" class="box" type="text" placeholder="请输入姓名" value="">
+                </div>
+                <div class="msg-item">
+                    <span class="msg-text">手机号:</span>
+                    <input id="mobile" class="box" type="number" placeholder="请输入手机号" value="">
+                </div>
+                <div class="msg-item">
+                    <span class="msg-text">账单金额:</span>
+                    <input id="money" class="box" type="number" placeholder="请输入实际购买金额" value="">
+                    <span class="unit">万</span>
+                </div>
+                <button type="submit" id="submitBtn" class="box">确定信息</button>
+            </from>
+        </div>
+        <div class="hint-wrap hidden">
+            <div class="tit-btn">金额确定</div>
+            <p>您的实际购物金额为</p>
+            <p class="real-money"><span id="real-num"></span>万</p>
+            <p class="size23">凡在店面购买 IMOLA 陶瓷正价商品且付全款的客户，</p>
+            <p class="size23">每单每满 5 万元即可获得一次抽奖机会。</p>
+            <p class="size18">（备注：如购物金额填写错误，将取消此次中奖资格。）</p>
+            <div class="btn-wrap">
+                <button class="btn back">返回上页</button>
+                <button class="btn start">开始抽奖</button>
+            </div>
+        </div>
+    </section>
+</body>
+<script type="text/x-handlebars-template" id="award-news-temp">
+    {{#each list}}
+    <li class="award-item box">恭喜
+        <span class="name">{{name}}</span> 获得
+        <span class="award-rank">{{award}}等奖。</span>
+    </li>
+    {{/each}}
+</script>
+<script type="text/javascript" src="static/js/jquery.min.js"></script>
+<script type="text/javascript" src="static/js/layer.js"></script>
+<script type="text/javascript " src="static/js/handlebars-v4.0.11.js "></script>
+<script type="text/javascript" src="static/js/imola.js"></script>
+<script type="text/javascript" src="static/js/login.js"></script>
+
+</html>

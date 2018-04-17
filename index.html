@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IMOLA五一抽奖小游戏</title>
+    <link rel="stylesheet" href="static/css/layer.css">
+    <link rel="stylesheet" href="static/css/index.css">
+    <script>
+        document.documentElement.style.fontSize = document.documentElement.clientWidth / 750 * 100 + 'px';
+    </script>
+</head>
+
+<body>
+    <header>
+        <div class="award-list">
+            <div class="award-list-con">
+                <ul class="award-list-ul">
+                    <li class="award-item box">恭喜
+                        <span class="name">霍建华</span> 获得
+                        <span class="award-rank">一等奖。</span>
+                    </li>
+                    <li class="award-item box">恭喜
+                        <span class="name">建华</span> 获得
+                        <span class="award-rank">一等奖。</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <section class="content">
+        <div class="result-wrap hidden">
+            <button class="close-btn" onclick="Imola.closeAwardHint.init()"></button>
+        </div>
+        <div class="trun-wrap">
+            <div id="wheelcanvas" class="turn-pan"></div>
+            <div class="turn-pointer"></div>
+        </div>
+        <div class="award-count">您有<span class="award-count-num"><i id="remain-count"></i>次</span>抽奖机会</div>
+        <button class="btn hidden" id="next">再次抽奖</button>
+        <button class="btn hidden" id="myAward">我的奖品</button>
+        <div class="active-desc"></div>
+    </section>
+</body>
+<script type="text/javascript " src="static/js/jquery.min.js "></script>
+<script type="text/javascript " src="static/js/layer.js "></script>
+<script type="text/javascript " src="static/js/awardRotate.js "></script>
+<script type="text/javascript " src="static/js/imola.js "></script>
+<script type="text/javascript " src="static/js/index.js "></script>
+
+</html>
