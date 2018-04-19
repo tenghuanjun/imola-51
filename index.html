@@ -17,37 +17,60 @@
     <header>
         <div class="award-list">
             <div class="award-list-con">
-                <ul class="award-list-ul">
-                    <li class="award-item box">恭喜
-                        <span class="name">霍建华</span> 获得
-                        <span class="award-rank">一等奖。</span>
-                    </li>
-                    <li class="award-item box">恭喜
-                        <span class="name">建华</span> 获得
-                        <span class="award-rank">一等奖。</span>
-                    </li>
-                </ul>
+                <ul class="award-list-ul"></ul>
             </div>
         </div>
     </header>
     <section class="content">
-        <div class="result-wrap hidden">
-            <button class="close-btn" onclick="Imola.closeAwardHint.init()"></button>
+        <div class="msg-wrap">
+            <div class="tit-btn">信息验证</div>
+            <div class="msg-from">
+                <div class="msg-item">
+                    <span class="msg-text">邀请码:</span>
+                    <input id="code" class="box" type="number" placeholder="请输入邀请码" value="">
+                </div>
+                <div class="msg-item">
+                    <span class="msg-text">姓名:</span>
+                    <input id="name" class="box" type="text" placeholder="请输入姓名" value="">
+                </div>
+                <div class="msg-item">
+                    <span class="msg-text">手机号:</span>
+                    <input id="mobile" class="box" type="number" placeholder="请输入手机号" maxlength="11" value="">
+                </div>
+                <div class="msg-item">
+                    <span class="msg-text">账单金额:</span>
+                    <input id="money" class="box" type="number" placeholder="请输入实际购买金额" value="">
+                    <span class="unit">万</span>
+                </div>
+                <button type="submit" id="submitBtn" class="box">确定信息</button>
+            </div>
         </div>
-        <div class="trun-wrap">
-            <div id="wheelcanvas" class="turn-pan"></div>
-            <div class="turn-pointer"></div>
+        <div class="hint-wrap hidden">
+            <div class="tit-btn">金额确定</div>
+            <p>您的实际购物金额为</p>
+            <p class="real-money"><span id="real-num"></span>万</p>
+            <p class="size23">凡在店面购买 IMOLA 陶瓷正价商品且付全款的客户，</p>
+            <p class="size23">每单每满 5 万元即可获得一次抽奖机会。</p>
+            <p class="size18">（备注：如购物金额填写错误，将取消此次中奖资格。）</p>
+            <div class="btn-wrap">
+                <button class="btn back">返回上页</button>
+                <button class="btn start">开始抽奖</button>
+            </div>
         </div>
-        <div class="award-count">您有<span class="award-count-num"><i id="remain-count"></i>次</span>抽奖机会</div>
-        <button class="btn hidden" id="next">再次抽奖</button>
-        <button class="btn hidden" id="myAward">我的奖品</button>
-        <div class="active-desc"></div>
     </section>
 </body>
-<script type="text/javascript " src="static/js/jquery.min.js "></script>
-<script type="text/javascript " src="static/js/layer.js "></script>
-<script type="text/javascript " src="static/js/awardRotate.js "></script>
-<script type="text/javascript " src="static/js/imola.js "></script>
-<script type="text/javascript " src="static/js/index.js "></script>
+<script type="text/x-handlebars-template" id="award-news-temp">
+    {{#each list}}
+    <li class="award-item box">恭喜
+        <span class="name">{{name}}</span> 获得
+        <span class="award-rank">{{#rank award}}{{this.award}}{{/rank}}等奖。</span>
+    </li>
+    {{/each}}
+</script>
+<script type="text/javascript" src="static/js/jquery.min.js"></script>
+<script type="text/javascript" src="static/js/layer.js"></script>
+<script type="text/javascript " src="static/js/handlebars-v4.0.11.js "></script>
+<script type="text/javascript" src="static/js/imola.js"></script>
+<script type="text/javascript" src="static/js/index.js"></script>
 
 </html>

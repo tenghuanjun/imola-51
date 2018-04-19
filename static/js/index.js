@@ -1,89 +1,82 @@
 $(document).ready(function(){
-    var userData = Imola.getLocalData.init('userData'),
-        money = userData.money ? userData.money: '',
-        count = Imola.getLocalData.init('count', ''),
-        remainCount = Imola.getLocalData.init('remainCount', '') ? Imola.getLocalData.init('remainCount', '') : count;
-    $('#remain-count').html(remainCount);
-    function nextBtnStatus(){
-        var count = localStorage.getItem('count'),
-            remainCount = localStorage.getItem('remainCount') ? localStorage.getItem('remainCount') : localStorage.getItem('count'),
-            status = JSON.parse(localStorage.getItem('status'));
-        if ( count > remainCount ){
-            if( status ){
-                $('#next').removeClass('hidden');
-            }else{
-                $('#next').addClass('hidden');
+    var params = Imola.getUrlParams.init('params') ? Imola.getUrlParams.init('params') : {};
+    // 检验用户登录状态
+    $.post('' + baseUrl + 'wxa/api/app', {
+        'method': 'isTurnTableUser',
+        'version': '1',
+        'token': params.token
+    }, function (res) {
+        if (res.Ack == 'Success') {
+            if (res.hasRegister) {
+                // window.location.href = '/wxa/plugin/20180501/home.html?params=' + decodeURI(JSON.stringify(params))
+                window.location.href = '/wxa/plugin/20180501/home.html?params=' + Imola.getUrlParams.init('params', true)
             }
-            $('#myAward').removeClass('hidden');
-        }
-    }
-    nextBtnStatus();
-    // 抽奖
-    var awards = ["A", "B", "C", "D"];
-    function getAwardRank(key) {
-        var item;
-        switch (key) {
-            case 'A':
-                item = 1;
-                break;
-            case 'B':
-                item = 2;
-                break;
-            case 'C':
-                item = 3;
-                break;
-            case 'D':
-                item = 4;
-                break;
-        }
-        return item
-    }
-    // 转盘
-    var rotateFn = function (item) {
-        var angles = item * (360 / awards.length) - (360 / (awards.length * 2));
-        if (angles < 90) {
-            angles = 90 - angles;
         } else {
-            angles = 360 - angles + 90;
-        }
-        $('#wheelcanvas').stopRotate();
-        $('#wheelcanvas').rotate({
-            angle: 0,
-            animateTo: angles + 3600,
-            duration: 5000,
-            callback: function () {
-                $('.result-wrap').removeClass('hidden').addClass('award' + item +'');
-                // 获奖信息存储在本地
-            }
-        });
-    };    
-    
-    $('.turn-pointer, #next').on('click', function(){
-        var status = JSON.parse(localStorage.getItem('status'));
-        var params = {
-            "token": userData.token
-        }
-        if (status){
-            $.get('static/api/startAward.json', params, function(res){
-                if(res.Ack == 'Success'){
-                    var rank = getAwardRank(res.data);
-                    rotateFn(rank);
-                    var remainCount = localStorage.getItem('remainCount') ? localStorage.getItem('remainCount') : count;
-                        remainCount-=1;
-                    if( remainCount <=0 ){
-                        localStorage.setItem('status', false)
-                    }
-                    localStorage.setItem('remainCount', remainCount)
-                    $('#remain-count').html(remainCount);
-                    nextBtnStatus();
-                }
-            });
-        }else{
             Imola.hint.init(res.LongMessage);
         }
     });
-    // 跳转我的奖品页面
-    $('#myAward').on('click', function () {
-        window.location.href = '/list.html'
-    });    
+
+    $('#submitBtn').on('click', function(){
+        var money = $('#money').val();
+        $('#real-num').html(money);
+        $('.msg-wrap').addClass('hidden');
+        $('.hint-wrap').removeClass('hidden');
+    });
+    // back
+    $('.back').on('click', function(){
+        $('.msg-wrap').removeClass('hidden');
+        $('.hint-wrap').addClass('hidden');
+    });
+    // start
+    $('.start').on('click', function(){
+        var city = params.city,
+            token = params.token,
+            invite_code = $.trim($('#code').val())
+        name = $.trim($('#name').val()),
+            mobile = $.trim($('#mobile').val()),
+            money = $.trim($('#money').val()),
+            mobileReg = /^1[3|4|5|6|7|8][0-9]\d{4,8}$/;
+        if (invite_code == '') {
+            Imola.hint.init('请输入邀请码');
+        } else if (name == '') {
+            Imola.hint.init('请输入姓名');
+        } else if (mobile == '') {
+            Imola.hint.init('请输入手机号');
+        } else if (!mobileReg.test(mobile) || mobile.length != 11) {
+            Imola.hint.init('手机号格式不正确');
+        } else if (money == '') {
+            Imola.hint.init('请输入实际购买金额');
+        } else {
+            $.post('' + baseUrl + 'wxa/api/app', {
+                'method': 'registerTurnTableUser',
+                'version': '1',
+                'city': city,
+                'token': token,
+                'invite_code': invite_code,
+                'name': name,
+                'mobile': mobile,
+                'money': money
+            }, function (res) {
+                var userData = {};
+                userData['city'] = city;
+                userData['token'] = token;
+                userData['name'] = name;
+                userData['mobile'] = mobile;
+                userData['money'] = money;
+                // localStorage.setItem('userData', JSON.stringify(userData));
+                // localStorage.setItem('count', Math.floor(parseInt(money) / 5));
+                // localStorage.removeItem('remainCount');
+                if (res.Ack == 'Success') {
+                    $('.msg-wrap').addClass('hidden');
+                    $('.hint-wrap').removeClass('hidden');
+                    // localStorage.setItem('flag', true);
+                    // 刷新城市获奖名单
+                    Imola.getAwardList.init();
+                    window.location.href = '/wxa/plugin/20180501/home.html?params=' + Imola.getUrlParams.init('params', true);
+                } else if (res.Ack == 'Error') {
+                    Imola.hint.init(res.LongMessage);
+                }
+            });
+        }
+    });
 });

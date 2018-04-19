@@ -1,16 +1,16 @@
 {
-    "success": true,
+    "Ack": "Success",
     "list": [{
         "name": "霍建华",
-        "award": "一"
+        "award": "A"
     }, {
         "name": "斯坦森",
-        "award": "三"
+        "award": "C"
     }, {
         "name": "武隆隆",
-        "award": "二"
+        "award": "B"
     }, {
         "name": "宋X",
-        "award": "一"
+        "award": "A"
     }]
 }
